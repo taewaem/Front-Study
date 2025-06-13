@@ -1,0 +1,224 @@
+/* 바디 배경을 그라데이션으로 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #ffffff;
+    /* 여기만 흰색으로 변경 */
+    color: #222;
+
+    margin: 0;
+    padding: 20px;
+}
+
+/* 상단 타이틀 박스 - 네온 느낌 */
+.box1 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #e0e6ff;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 10px #6a84ff, 0 0 20px #4a66f8;
+}
+
+/* 입력 및 버튼 박스 - 반투명 유리 느낌 */
+.box2 {
+    max-width: 920px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(74, 102, 248, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 날짜 input 스타일 */
+#dateInput {
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    border: 2px solid #d7e1ff;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    width: 180px;
+    margin-right: 15px;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+#dateInput:focus {
+    border-color: #c0d6ff;
+    box-shadow: 0 0 15px #7a95ff;
+    background: white;
+}
+
+/* 버튼 스타일 - 그라데이션 & 반짝임 */
+#btn1 {
+    background: linear-gradient(90deg, #5f7dff, #1e2a78);
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 26px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(44, 57, 225, 0.7);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#btn1::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+#btn1:hover {
+    background: linear-gradient(90deg, #7f9dff, #3a4fce);
+    box-shadow: 0 6px 20px rgba(59, 84, 255, 0.9);
+}
+
+#btn1:hover::after {
+    opacity: 1;
+    animation: shimmer 1.2s infinite;
+}
+
+/* 버튼 반짝임 애니메이션 */
+@keyframes shimmer {
+    0% {
+        transform: rotate(0deg) translateX(-100%);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: rotate(15deg) translateX(100%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotate(30deg) translateX(-100%);
+        opacity: 0.6;
+    }
+}
+
+/* 상태 메시지 */
+#msg {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: blue;
+    min-height: 28px;
+    text-align: center;
+}
+
+/* 박스3: 영화 목록 및 상세정보 컨테이너 */
+/* display:flex는 JS에서 설정하므로 기본 스타일만 */
+.box3 {
+    margin-top: 30px;
+}
+
+/* 영화 목록 개별 아이템 - 카드 느낌 + 그림자 + 반짝임 */
+.movie-item {
+    background: linear-gradient(145deg, #e6ebff, #c6d0ff);
+    border-radius: 14px;
+    padding: 15px 20px;
+    margin-bottom: 14px;
+    cursor: pointer;
+    box-shadow:
+        3px 3px 6px rgba(160, 178, 255, 0.5),
+        -3px -3px 6px rgba(255, 255, 255, 0.8);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.movie-item::before {
+    content: "";
+    position: absolute;
+    top: -30%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.movie-item:hover::before {
+    opacity: 1;
+}
+
+.movie-item:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        6px 6px 12px rgba(100, 120, 255, 0.7),
+        -6px -6px 12px rgba(220, 230, 255, 0.9);
+}
+
+/* 영화 랭크 숫자 스타일 */
+.movie-item strong {
+    color: #1e2a78;
+    margin-right: 10px;
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-shadow: 0 0 6px #4a66f8;
+}
+
+/* 관람객 수 텍스트 색감 */
+.movie-item span {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* 상세정보 박스 스타일 */
+#detail-box {
+    background: linear-gradient(145deg, #ffffffcc, #d6e0ffcc);
+    border-radius: 16px;
+    padding: 30px 35px;
+    box-shadow: 0 8px 30px rgba(74, 102, 248, 0.3);
+    font-size: 1.1rem;
+    color: #222;
+    min-height: 320px;
+    user-select: text;
+    transition: background-color 0.3s ease;
+}
+
+/* 상세정보 제목 */
+#detail-box h3 {
+    font-size: 1.8rem;
+    margin-bottom: 22px;
+    color: #1e2a78;
+    text-shadow: 0 0 12px #4a66f8;
+}
+
+/* 상세정보 내 문단 간격 */
+#detail-box p {
+    margin: 10px 0;
+}
+
+/* 감도 높은 텍스트 강조 */
+#detail-box strong {
+    color: #4a66f8;
+    font-weight: 700;
+}
+
+/* 반응형 간단 적용 */
+@media (max-width: 720px) {
+    .box3 {
+        display: block !important;
+    }
+
+    #movie-list,
+    #detail-box {
+        min-width: auto !important;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+}
