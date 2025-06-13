@@ -2,62 +2,8 @@
 // const infoUrl = `https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=90fe539871d70e71ce2b7bbc53a8a695&movieCd=${movieCd}`;
 // const moviesUrl = `http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=90fe539871d70e71ce2b7bbc53a8a695&targetDt=${targetDt}`;
 
-
-// const dateInput = document.querySelector('#dateInput');
-// const btn = document.querySelector('#btn1');
-// const msg = document.querySelector('#msg');
-// const box = document.querySelector('.box3');
-
-// function getDefaultDay() {
-//     const day = new Date();
-//     day.setDate(day.getDate() - 1);
-//     console.log(day);
-//     return day.toISOString().slice(0, 10);
-// }
-
-// document.addEventListener('DOMContentLoaded', function() {
-//     dateInput.value = getDefaultDay();
-//     btn.addEventListener('click', searchMovies);
-// });
-
-
-
-// async function showMovies(targetDt) {
-
-// }
-
-// async function searchMovies(movieCd)) {
-//     try {
-//         msg.textContent = '검색 중...';
-
-//         // 실제로는 여기서 우리가 만든 백엔드 API 호출
-//         // const response = await fetch('/api/boxoffice?date=' + dateInput.value);
-//         const data = await response.json();
-
-//         // 간단한 화면 표시
-//         showResults(data);
-
-//     } catch (error) {
-//         msg.textContent = '오류가 발생했습니다';
-//         console.error(error);
-//     }
-// }
-
-// // 5. 화면 업데이트
-// function showResults(movies) {
-//     msg.textContent = '박스오피스 TOP 10';
-
-//     let html = '';
-//     movies.forEach(function(movie, index) {
-//         html += `<div>${index + 1}. ${movie.title} (${movie.audience}명)</div>`;
-//     });
-
-//     box.innerHTML = html;
-// }
-
-
-const API_KEY = "90fe539871d70e71ce2b7bbc53a8a695";
 // // 1. DOM 조작 기본
+const API_KEY ="90fe539871d70e71ce2b7bbc53a8a695";
 const dateInput = document.querySelector('#dateInput');
 const btn = document.querySelector('#btn1');
 const msg = document.querySelector('#msg');
