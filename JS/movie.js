@@ -1,9 +1,5 @@
-// //백틱 ` 사용 (작은다옴표 X)
-// const infoUrl = `https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=90fe539871d70e71ce2b7bbc53a8a695&movieCd=${movieCd}`;
-// const moviesUrl = `http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=90fe539871d70e71ce2b7bbc53a8a695&targetDt=${targetDt}`;
 
 // // 1. DOM 조작 기본
-const API_KEY ="90fe539871d70e71ce2b7bbc53a8a695";
 const dateInput = document.querySelector('#dateInput');
 const btn = document.querySelector('#btn1');
 const msg = document.querySelector('#msg');
