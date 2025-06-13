@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,12 +13,483 @@
     <div class="box1">일별 박스 오피스</div>
     <div class="box2">
         <input type="date" id="dateInput" />
-        <button type="button" id="btn1">확인</button> <!-- 확인" 버튼 클릭 이벤트로 동작 시작 -->
-        <div id="msg"></div> <!-- 영화 순위 리스트 출력 공간 -->
+        <button type="button" id="btn1">확인</button> 
+        <div id="msg"></div> 
         <div class="box3"></div>
     </div>
 
     <script src="movie.js"></script>
 </body>
 
+</html> -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>일별 박스 오피스</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .title {
+      background: rgba(255, 255, 255, 0.95);
+      color: #4a5568;
+      padding: 20px 40px;
+      border-radius: 25px;
+      font-size: 2.2em;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .date-input {
+      padding: 15px 20px;
+      font-size: 1.1em;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      outline: none;
+      transition: all 0.3s ease;
+      background: white;
+      min-width: 200px;
+    }
+
+    .date-input:focus {
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .search-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #2d3748; /* 어두운 회색으로 수정 */
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .search-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+      color: white; /* 호버 시 흰색으로 변경 유지 */
+    }
+
+    .search-btn:active {
+      transform: translateY(0);
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .box-office-list {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .section-title {
+      font-size: 1.5em;
+      font-weight: 700;
+      color: #4a5568;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .movie-item {
+      display: block;
+      padding: 18px 20px;
+      margin: 10px 0;
+      background: white;
+      border-radius: 15px;
+      text-decoration: none;
+      color: #4a5568;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .movie-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+      border-color: #667eea;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .movie-rank {
+      font-weight: 700;
+      font-size: 1.1em;
+      color: #667eea;
+    }
+
+    .movie-item:hover .movie-rank {
+      color: white;
+    }
+
+    .movie-detail {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      min-height: 400px;
+    }
+
+    .detail-content {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      padding: 25px;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+
+    .detail-item {
+      display: flex;
+      margin: 15px 0;
+      align-items: flex-start;
+    }
+
+    .detail-label {
+      font-weight: 700;
+      color: #667eea;
+      min-width: 100px;
+      margin-right: 15px;
+    }
+
+    .detail-value {
+      color: #4a5568;
+      flex: 1;
+      line-height: 1.5;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #718096;
+      font-size: 1.1em;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: #a0aec0;
+    }
+
+    .empty-icon {
+      font-size: 4em;
+      margin-bottom: 20px;
+    }
+
+    .error {
+      background: #fed7d7;
+      color: #c53030;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .search-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .title {
+        font-size: 1.8em;
+        padding: 15px 25px;
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 class="title">🎬 일별 박스 오피스</h1>
+      <div class="search-container">
+        <input type="date" id="dateInput" class="date-input" />
+        <button id="searchBtn" class="search-btn">🔍 확인</button>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div class="box-office-list">
+        <h2 class="section-title">📊 박스 오피스 순위</h2>
+        <div id="movieList">
+          <div class="empty-state">
+            <div class="empty-icon">🎭</div>
+            <p>날짜를 선택하고 확인 버튼을 눌러주세요!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="movie-detail">
+        <h2 class="section-title">🎞️ 영화 상세 정보</h2>
+        <div id="movieDetail">
+          <div class="empty-state">
+            <div class="empty-icon">🍿</div>
+            <p>영화를 선택하면 상세 정보가 표시됩니다</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_KEY = "69a135958d6dbcbd8dd99b5bbc851732";
+    const movieListEl = document.getElementById("movieList");
+    const movieDetailEl = document.getElementById("movieDetail");
+    const dateInput = document.getElementById("dateInput");
+    const searchBtn = document.getElementById("searchBtn");
+
+    // 오늘 날짜로 초기 설정
+    const today = new Date();
+    const yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+    dateInput.value = yesterday.toISOString().split('T')[0];
+
+    searchBtn.addEventListener("click", fetchBoxOffice);
+    
+    // 엔터키로도 검색 가능
+    dateInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") fetchBoxOffice();
+    });
+
+    function fetchBoxOffice() {
+      const date = dateInput.value.replace(/-/g, "");
+      if (!date) {
+        showError("날짜를 선택해주세요!");
+        return;
+      }
+
+      showLoading(movieListEl);
+      
+      const url = `https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${API_KEY}&targetDt=${date}`;
+
+      fetch(url)
+        .then(response => {
+          if (!response.ok) throw new Error("API 요청 실패");
+          return response.json();
+        })
+        .then(data => {
+          displayBoxOfficeList(data.boxOfficeResult.dailyBoxOfficeList);
+        })
+        .catch(error => {
+          console.error("박스오피스 API 에러:", error);
+          showError("데이터를 불러오는데 실패했습니다. 다시 시도해주세요.");
+        });
+    }
+
+    function displayBoxOfficeList(movies) {
+  if (!movies || movies.length === 0) {
+    movieListEl.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">😢</div>
+        <p>해당 날짜의 박스오피스 데이터가 없습니다</p>
+      </div>
+    `;
+    return;
+  }
+
+  movieListEl.innerHTML = movies.map(movie => {
+    const rankInten = parseInt(movie.rankInten, 10);
+    let changeSymbol = "";
+
+    if (movie.rankOldAndNew === "NEW") {
+      changeSymbol = "🆕 NEW";
+    } else if (rankInten > 0) {
+      changeSymbol = `🔺${rankInten}`;
+    } else if (rankInten < 0) {
+      changeSymbol = `🔻${Math.abs(rankInten)}`;
+    } else {
+      changeSymbol = `⏺ 유지`;
+    }
+
+    return `
+      <a href="#" class="movie-item fade-in" data-movie-code="${movie.movieCd}">
+        <span class="movie-rank">${movie.rank}위</span> - ${movie.movieNm}
+        <div style="font-size: 0.9em; color: #718096; margin-top: 5px;">(${changeSymbol})</div>
+      </a>
+    `;
+  }).join('');
+
+  // 영화 클릭 이벤트 추가
+  movieListEl.querySelectorAll('.movie-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const movieCode = e.currentTarget.dataset.movieCode;
+      fetchMovieDetail(movieCode);
+
+      // 하이라이트
+      movieListEl.querySelectorAll('.movie-item').forEach(el => {
+        el.style.background = 'white';
+        el.style.color = '#4a5568';
+      });
+      e.currentTarget.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+      e.currentTarget.style.color = 'white';
+    });
+  });
+}
+
+
+    function fetchMovieDetail(movieCode) {
+      showLoading(movieDetailEl);
+      
+      const url = `https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=${API_KEY}&movieCd=${movieCode}`;
+
+      fetch(url)
+        .then(response => {
+          if (!response.ok) throw new Error("영화 상세정보 API 요청 실패");
+          return response.json();
+        })
+        .then(data => {
+          displayMovieDetail(data.movieInfoResult.movieInfo);
+        })
+        .catch(error => {
+          console.error("영화 상세정보 API 에러:", error);
+          movieDetailEl.innerHTML = `
+            <div class="error">
+              영화 상세정보를 불러오는데 실패했습니다.
+            </div>
+          `;
+        });
+    }
+
+    function displayMovieDetail(movie) {
+      const directors = movie.directors.map(d => d.peopleNm).join(", ") || "-";
+      const actors = movie.actors.slice(0, 6).map(a => a.peopleNm).join(", ") || "-";
+      const genres = movie.genres.map(g => g.genreNm).join(", ") || "-";
+      const nations = movie.nations.map(n => n.nationNm).join(", ") || "-";
+
+      movieDetailEl.innerHTML = `
+        <div class="detail-content fade-in">
+          <div class="detail-item">
+            <span class="detail-label">🎬 제목:</span>
+            <span class="detail-value">${movie.movieNm}</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">🌏 영어 제목:</span>
+            <span class="detail-value">${movie.movieNmEn || "-"}</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">⏰ 상영시간:</span>
+            <span class="detail-value">${movie.showTm || "-"}분</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">🎭 장르:</span>
+            <span class="detail-value">${genres}</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">🎯 감독:</span>
+            <span class="detail-value">${directors}</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">⭐ 출연:</span>
+            <span class="detail-value">${actors}</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">🌍 제작국가:</span>
+            <span class="detail-value">${nations}</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">📅 개봉년도:</span>
+            <span class="detail-value">${movie.openDt || "-"}</span>
+          </div>
+        </div>
+      `;
+    }
+
+    function showLoading(element) {
+      element.innerHTML = `
+        <div class="loading pulse">
+          <div style="font-size: 2em; margin-bottom: 15px;">⏳</div>
+          <p>데이터를 불러오는 중...</p>
+        </div>
+      `;
+    }
+
+    function showError(message) {
+      movieListEl.innerHTML = `
+        <div class="error">
+          ${message}
+        </div>
+      `;
+    }
+
+    // 페이지 로드 시 어제 날짜의 박스오피스 자동 로드
+    window.addEventListener('load', () => {
+      setTimeout(fetchBoxOffice, 500);
+    });
+  </script>
+</body>
 </html>
