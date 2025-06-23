@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VarType</title>
+</head>
+<body>
+    <script>
+        // 값이 없으면 읽지 않는다(undefined로 출력)
+        var num;
+        var obj  = null;
+        document.write(typeof num + "<br>");
+        document.write(typeof obj + "<br>");
+        document.write(typeof 100 + "<br>");
+        document.write(typeof 10.5 + "<br>");
+        document.write(typeof "kim" + "<br>");
+        document.write(typeof true + "<br>");
+        document.write(typeof [1,2,3] + "<br>");
+        document.write(typeof {name:"kim", age:25} + "<br>");
+        document.write(typeof {name:"kim", age:25} + "<br>");
+
+        var num1 = 10;
+        document.write("num1 변수: " + typeof num1 + "<br>");
+        document.write("--------데이터 형 변환-------- <br>");
+        var num1 = "kim";
+        document.write("num1 변수: " + typeof num1 + "<br>");
+
+        //var 키워드 생략가능
+        stdName="min"; 
+        comGrade = 96;
+
+        document.write("학생 이름: " + stdName + "<p/>");
+        document.write("학생 점수: " + comGrade + "<p/>");
+
+
+    </script>
+</body>
+</html>

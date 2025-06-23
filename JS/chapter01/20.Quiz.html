@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let solution=10;
+        let input = prompt('수를 맞춰보세요');
+
+        console.log(input);
+
+        if(input > solution +2){
+            alert('Down')
+        }
+        else if(input>solution-2){
+            alert('Up')
+        }
+         else {
+            if(input==solution){
+                alert('정답')
+            }
+             else if(input>solution-2){
+                alert('정답과 가깝습니다.')
+            }
+        }
+
+        
+    </script>
+
+    <script>
+        let gender=prompt('성별을 입력해주세요');
+   switch(gender){
+   case '여자':
+      alert('female');
+      break;
+   case '남자':
+      alert('male');
+      break;
+   case '기타':
+      alert('Other');
+      break;
+   default:
+   alert('남자, 여자, 기타 중 하나를 입력하세요');
+   }
+    </script>
+</body>
+</html>

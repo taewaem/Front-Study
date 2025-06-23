@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>Car</h2>
+    <p id="carname"></p>
+    <p id="carcolor"></p>
+    <p id="carspeed"></p>
+
+
+    <script>
+        function Car(name, color, speed){
+            this.name  =name;
+            this.color = color;
+            this.speed = speed;
+
+            this.speedUp=function(){
+                return this.speed+10;
+            };
+            this.speedDown=function(){
+                return this.speed-10;
+            };
+    }
+
+
+    let hongCar = new Car('sonata', 'blue', 100);
+    let kimCar = new Car('jeep', 'red', 120);
+    
+    var cname=document.getElementById("carname");
+    cname.textContent= '자동차 이름: ' + hongCar.name;
+    
+    var c_speed=document.getElementById("carspeed");
+    c_speed.textContent= '자동차 속도: ' + hongCar.speedUp();
+
+    var c_color=document.getElementById("carcolor");
+    c_color.textContent= '자동차 색상: ' + hongCar.color;
+
+    </script>
+    <hr>
+
+    <script>
+        var car=[
+        { name:'Sonata', color:'blue', speed:100 },
+        { name:'Jeep', color:'red', speed:70 },
+        { name:'Audi', color:'white', speed:150 }
+    ]
+
+    var cname=document.getElementById("carname");
+    cname.textContent= '자동차 이름: ' + hongCar.name;
+    
+    var c_speed=document.getElementById("carspeed");
+    c_speed.textContent= '자동차 속도: ' + hongCar.speedUp();
+
+    var c_color=document.getElementById("carcolor");
+    c_color.textContent= '자동차 색상: ' + hongCar.color;
+    </script>
+
+</body>
+</html>

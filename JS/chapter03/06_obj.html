@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="d1"></p>
+    <p id="d2"></p>
+    <p id="d3"></p>
+    <p id="d4"></p>
+    <p id="d5"></p>
+    <p id="d6"></p>
+    <p id="d7"></p>
+    <p id="d8"></p>
+    <p id="d9"></p>
+
+    <script>
+        //기본생성자
+        document.getElementById("d1").innerHTML= new Date();
+
+        //1970.01.01
+        document.getElementById("d2").innerHTML=new Date(1491803527400)
+
+        //문자열 날짜
+        document.getElementById("d3").innerHTML=new Date("March 8, 2025 17:03:07");
+
+        //날짜 지정: 월(month)은 0부터시작
+        document.getElementById("d4").innerHTML=new Date(2025, 6, 12, 11, 45, 29);
+    </script>
+    <hr>
+
+    <script>
+        var today = new Date();
+
+        document.getElementById("d5").innerHTML= today.getFullYear() + "년";
+        document.getElementById("d6").innerHTML= today.getMonth()+1 + "월" + today.getDate() + "일";
+        document.getElementById("d7").innerHTML= today.getHours() + "시" + today.getMinutes() + "분" + today.getSeconds() + "초";
+        document.getElementById("d8").innerHTML= today.getTime();
+        
+
+    </script>
+</body>
+</html>

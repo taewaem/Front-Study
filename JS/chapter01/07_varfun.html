@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fun</title>
+</head>
+<body>
+    <script>
+        function getGrade(){
+            // 지역 변수
+            var kor = 95;
+            document.write("국어 점수: " + kor + "<br>");
+        }
+
+        // 전역 변수
+        var kor = 100;
+        getGrade();
+        document.write("=======================================<br>");
+        document.write("국어 점수: " + kor + "<br>");
+        document.write("=======================================<br>");
+
+        function getGrade1(){
+            // 지역 변수
+            var kor1 = 95;
+        }
+
+        getGrade1();
+        document.write("지역 변수값은 함수 외부에서 사용할 수 없다. <br>");
+        // document.write("국어 점수: " + kor + "<br>");
+        document.write("=======================================<br>");
+
+        function getGrade2(){
+            // 지역 변수
+            var kor2 = 95;
+            return kor2;
+        }
+
+        getKor = getGrade2();
+        document.write("국어 점수: " + getKor + "<br>");
+
+    </script>
+</body>
+</html>

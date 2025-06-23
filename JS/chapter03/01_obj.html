@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="var1"></p>
+    <p id="var2"></p>
+    <p id="var3"></p>
+
+
+    <script>
+        var car={name: 'Sonata', speed: 100, color: 'white'};
+        document.getElementById("var1").innerHTML="자동차 이름: " + car['name'];
+        document.getElementById("var2").innerHTML="자동차 속도: " + car['speed'];
+        document.getElementById("var3").innerHTML="자동차 색상상: " + car['color'];
+    </script>
+    <hr>
+
+    <p id="msg1"></p>
+    <p id="msg2"></p>
+    <p id="msg3"></p>
+
+
+    <script>
+        var obj={
+            m1:function(){
+                return "Hello Soldesk";
+            },
+            m2:function(a){
+                var result = a;
+                return a;
+            },
+            m3:function(a,b){
+                var result = a + b
+                return result;
+            },
+        }
+
+        document.getElementById("msg1").innerHTML=obj.m1();
+        document.getElementById("msg2").innerHTML=obj.m2(1);
+        document.getElementById("msg3").innerHTML=obj.m3(1, 2); 
+    </script>
+</body>
+</html>

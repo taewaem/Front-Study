@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>
+        /* var 구버전 변수방 선언: 스코프로 초기값은 undefined이며 중복선언이 가능 (현재는 권장 X) */
+        var num = 0;
+
+        // 프린트 코드
+        document.write("head 태그 내 실행 순서: " + num +"<br/>");
+    </script>
+
+    <script>
+        var num = 1; /* 변수방 선언 */
+        // 프린트 코드
+        document.write("head 태그 내 실행 순서: " + num +"<br/>");
+    </script>
+</head>
+
+<body>
+    <script>
+        var num = 2; /* 변수방 선언 */
+        // 프린트 코드
+        document.write("body 태그 내 실행 순서: " + num +"<br/>");
+    </script>
+
+    <script>
+        var num = 3; /* 변수방 선언 */
+        // 프린트 코드
+        document.write("body 태그 내 실행 순서: " + num +"<br/>");
+    </script>
+</body>
+</html>

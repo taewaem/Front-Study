@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var button = document.getElementById("myButton");
+            var input = document.getElementById("myInput");
+            var output = document.getElementById("output");
+
+            button.addEventListener("click", function(){
+               var name=input.value;
+               console.log(name);
+               output.textContent="안녕하세요, " + name + "님!"; 
+            });
+        });
+
+        
+    </script>
+</head>
+<body>
+    <input type="text" id="myInput" placeholder="이름 입력";>
+    <button id="myButton">출력</button>
+    <div id="output"></div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>Car</h2>
+    <p id="carname"></p>
+    <p id="carcolor"></p>
+    <p id="carspeed"></p>
+
+
+    <script>
+        var car={name: 'Sonata', 
+        speed: 100, 
+        color: 'white',
+        start:function(){
+            return this.speed+10;
+        }
+    };
+
+    
+    var cname=document.getElementById("carname");
+    cname.textContent=car.name;
+
+    var c_speed=document.getElementById("carspeed");
+    c_speed.textContent=car.speed;
+
+    var cname=document.getElementById("carname");
+    cname.textContent=car.name;
+    </script>
+    <hr>
+
+</body>
+</html>

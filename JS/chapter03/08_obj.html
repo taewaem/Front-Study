@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ById</title>
+</head>
+<body>
+    <p id="digClock"></p>
+
+    <script>
+        function digClock(){
+            var today = new Date();
+           
+            var day = today.getMonth() + 1 + "월" + today.getDate() + "일";
+            var time = today.getHours() + "시" +  today.getMinutes() + "분" + today.getSeconds() + "초"; 
+
+            document.getElementById("digClock").innerHTML=day+time;
+            setTimeout('digClock()', 1000);
+        }
+
+        function add(){
+            var header = document.createElement('h3') //요소 생성
+            var textNode = document.createTextNode('my name is Kim');
+
+            header.appendChild(textNode);   //textnode
+            document.body.appendChild(header);
+        }
+        
+        digClock();
+    
+    
+    </script>
+
+    <a href="#" onclick="add()">what's your name?</a>"
+</body>
+</html>

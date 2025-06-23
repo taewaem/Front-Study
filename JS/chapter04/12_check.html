@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var checkbox = document.getElementById("myCheckbox");
+            var output = document.getElementById("output");
+
+            checkbox.addEventListener("click", function () {
+                var isChecked = checkbox.checked;
+                console.log(isChecked);
+                output.textContent = "동의여부:  " + (isChecked?"true":"false");
+            });
+        });
+
+
+
+    </script>
+</head>
+
+<body>
+    <label><input type="checkbox" id="myCheckbox">동의합니다</label>
+    <div id="output"></div>
+</body>
+
+</html>

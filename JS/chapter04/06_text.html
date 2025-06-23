@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function addElement(){
+            let newParagraph = document.createElement("p");
+            newParagraph.textContent="new paragraph";
+            let myDiv = document.getElementById("myDiv");
+            myDiv.appendChild(newParagraph);
+        }
+
+        function add() {
+            var img = document.createElement('img');
+            img.src = 'html5.jpg';
+            img.width = 100;
+            img.height = 122;
+            document.body.appendChild(img);
+        }
+    </script>
+</head>
+<body>
+
+    <div id="myDiv"></div>
+
+    <button onclick="addElement()">Add Element</button>
+    <hr>
+    <a href="#" onclick="add()">이미지 추가</a>
+
+</body>
+</html>

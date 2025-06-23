@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        // 공백 리터널 포함
+        var city = ["seoul", , "busna", ,"incheon"];
+
+        // 배열 객체 생성
+        var objcity = new Array("seoul", "busna", "incheon");
+
+        function printArr(){
+            var i;
+            for(i=0; i<city.length; i++){
+                document.write("배열 데이터["+i+"]= "+city[i] + "<br/>");
+            }
+        }
+
+        printArr();
+    </script>
+    <hr>
+
+    <script>    
+        // 10명 중 8명의 점수만 입력됨
+        var x = 5;
+        var arr=[100, "Seoul" , true, x]
+
+        function printCity(){
+         var i;
+         for(i=0; i<city.length; i++){
+            document.write("배열 데이터 ["+ i +"] = "+city[i]+"<br>");
+         }
+        }
+
+        function printArr(){
+         var i;
+         for(i=0; i<arr.length; i++){
+            document.write("배열 데이터 ["+ i +"] = "+arr[i]+"<br>");
+         }
+        }
+      
+        printCity();
+        document.write("======================================<p>");
+        printArr();
+
+    </script>
+    <hr>
+
+    <script>
+       var com = [95,88, ,72,68, ,99,85,78,95];
+
+        var getAvg;
+        
+        function printAge(){
+            var  i, sum =0;
+            var count =0;
+            var n=com.length;
+            document.write(n+"명의 점수 입력<p/>");
+
+            for(i=0; i<n; i++){
+                if(com[i] === undefined){
+                    continue;
+                }
+                else{
+                    sum += com[i];
+                    count++;
+                }
+            }
+
+            document.write(count+"명의 점수 입력<p/>");
+            document.write("총점: "+ sum +"<p/>");
+
+            return (sum/count);
+        }
+
+        getAvg = printAge();
+        document.write("평균:  " + getAvg + "<p/>");
+    </script>
+</body>
+</html>

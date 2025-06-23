@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+<body>
+    <!-- 함수 호이스팅(function hoisting)방식으로 호출하므로 실제 위치보다 위에서 함수를 호출해도 정상 실행됨     -->
+     <script>
+        let text1 = "힘수 선언 전 호출";
+        let text2 = "힘수 선언 후 호출";
+        printMessage(text1);
+        function printMessage(message){
+            document.write("함수 호출 메세지 : " + message + "<hr/>");
+        }
+        printMessage(text2);
+
+        //ERROR
+        // printMessage2(text1)
+
+        //무명함수수
+        let printMessage2 = function(message){
+            document.write("함수 호출 메세지 : " + message + "<hr/>"); 
+        }
+        printMessage2(text2)
+     </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function changeClass(){
+            let heading = document.getElementById("myHeading");
+            heading.className="blue";
+        }
+    </script>
+</head>
+<body>
+    <h1 id="myHeading" class="red">Hello World!</h1>
+    <p>Click the button to change the text of the heading:</p>
+
+    <button onclick="changeClass()">Click me</button>
+    <style>
+        .red {
+            color :red;
+        }
+        .blue{
+            color: blue;
+        }
+    </style>
+</body>
+</html>

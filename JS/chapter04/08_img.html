@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            var button = document.getElementById("myButton1");
+            var image = document.getElementById("myImg");
+            var imageIndex = 1;
+
+            button.addEventListener("click", function () {
+
+                imageIndex = imageIndex === 1 ? 2 : 1;
+                image.src = "img" + imageIndex + ".jpg";
+            });
+
+        });
+
+
+        function buttonEvent() {
+            var button = document.getElementById("myButton1");
+            button.addEventListener("click", function(){
+                console.log("버튼이 클릭됨됨")
+            });
+        }
+
+    </script>
+</head>
+
+<body>
+    <button id="myButton1">이미지 변경</button>
+    <p></p>
+    <img id="myImg" src="img1.jpg" alt="이미지">
+    <hr>
+
+
+    <p id="msg">버튼 이벤트</p>
+    <input type="button" id="myButton2" onclick="buttonEvent()" value="텍스트 스타일 변경" />
+    <!-- <a href="html5.jpg">프로그래머스로 이동</a> -->
+</body>
+
+</html>

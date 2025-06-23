@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+<body>
+
+    <script>
+        // 기명 함수
+        function printMsg(name, age){
+            document.write("이름: " + name + "<br>");
+            document.write( " 나이: " + age);
+            // alert("이름: " + name + " 나이: " + age);
+        }
+
+        // 무명 함수
+        let printMsg = function(name, age){
+            document.write("이름: <b>" + name + "</b><br>");
+            document.write( " 나이: " + age);
+            // alert("이름: " + name + " 나이: " + age);
+        }
+    </script>
+        
+    <button type="button" onclick="printMsg('솔데스크', 25)">학생 정보</button>
+</body>
+</html>
