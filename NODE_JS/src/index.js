@@ -1,45 +1,37 @@
-//console.log("안녕 Node.js")
-console.log("---------------------------")
-//1. greeting 모듈
-//greeting.js 모듈 가져오기
-const sayHello=require("./greeting");
+// // ES module 시스템 사용
 
-//함수 호출
-const message=sayHello("SolDesk");
-console.log(message);
-console.log("---------------------------")
+// import {add, subtract, multiply, divide } from "./ESM_math.js";
 
-//2. math 모듈
-//math.js
-const {add, subtract, multiply, divide}=require("./math");
-//const math=require("./math");
-console.log(add(5,3));
-console.log(subtract(5,3));
-console.log("---------------------------")
-//console.log(math.multiply(5,3));
-console.log(multiply(5,3));
-console.log(divide(5,3));
-console.log("---------------------------")
-//3.fileManager(fs) 모듈
-const fileManager=require("./fileManager");
-//console.log(fileManager);
-const fileName="sample.txt";
-const content="Hello NodeJS!";
+// console.log(add(5,3));
+// console.log(subtract(5,3));
+// console.log(multiply(5,3));
+// console.log(divide(5,3));
 
-//함수 호출
-fileManager.writeFile(fileName, content);
-console.log(fileManager.readFile(fileName));
-console.log("----------------------------")
+// ES module 시스템 사용
 
-//4.getWeather 모듈
-const getWeather=require("./weatherModule.js");
-getWeather("Seoul");
+// import mul, {add, subtract, divide } from "./ESM_math2.js";
 
-console.log("----------------------------------")
-//5.notesMangager 모듈
-//noteManager.js
+// // import {add, subtract, divide } from "./ESM_math2.js";
+// console.log(add(5,3));
+// console.log(subtract(5,3));
+// console.log(divide(6,3));
 
-const {addNote, getNotes, deleteNote} = require("./noteManager.js");
-addNote("Node.js", "Learn how to use Node.js");
-getNotes();
-deleteNote(1);
+// // import mul from "./ESM_math2.js";
+// console.log(multiply(5,3));
+
+import { getCurrentDate, getDayOfWeek } from "./getdate.js";
+//줄여서 사용 가능
+import format from "./getdate.js";
+
+const today = getCurrentDate();
+console.log("Today Date: ", today);
+
+const specificDate = "2025-07-11";
+const dayOfWeek = getDayOfWeek(specificDate);
+console.log("(일요일:0, 월요일:1...", dayOfWeek);
+
+console.log("------------------------------");
+const username = "Alice";
+const message = "Hello, everyone!";
+
+console.log(format(username, message));
