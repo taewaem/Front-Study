@@ -82,46 +82,73 @@ const Register = () => {
     });
 
     const countRef = useRef(0);
-    const inputref = useRef();
+    const inputRef = useRef();
 
     const onChange = (e) => {
 
         console.log(countRef.current);
         console.log(e.target.name + " : " + e.target.value);
-        
+
         setInput({
             ...input,
             [e.target.name]: e.target.value,
-        })
-    }
+        });
+    };
 
 
-    const onChangeName = (e) => {
-        setInput({ ...input, name: e.target.value });
-    }
-    const onChangeBirth = (e) => {
-        setInput({ ...input, birth: e.target.value });
-    }
-    const onChangeConutry = (e) => {
-        setInput({ ...input, conutry: e.target.value });
-    }
-    const onChangeBio = (e) => {
-        setInput({ ...input, bio: e.target.value });
-    }
+    const onSubmit = () => {
+        if (input.name === "") {
+            console.log(inputRef.current);
+            inputRef.current.focus();
+        }
+    };
+    // const onChangeName = (e) => {
+    //     setInput({ ...input, name: e.target.value });
+    // }
+    // const onChangeBirth = (e) => {
+    //     setInput({ ...input, birth: e.target.value });
+    // }
+    // const onChangeConutry = (e) => {
+    //     setInput({ ...input, conutry: e.target.value });
+    // }
+    // const onChangeBio = (e) => {
+    //     setInput({ ...input, bio: e.target.value });
+    // }
 
     return (
-
         <div>
+
+            {/* <button
+                onClick={() => {
+                    countRef.current++;
+                    console.log(countRef.current);
+                }}
+            >조회수
+            </button> */}
+
             <div>
-                <input value={input.name} onChange={onChangeName} placeholder={"이름을 입력하세요"} />
+                <input
+                    ref={inputRef}
+                    name="name"
+                    value={input.name}
+                    onChange={onChange}
+                    placeholder={"이름을 입력하세요"} />
                 <br />
-                {name}
-                {/* <hr /> */}
-                <input value={input.birth} onChange={onChangeBirth} placeholder="생년월일" type="date" />
+            </div>
+            <div>
+                <input
+                    name="birth"
+                    value={input.birth}
+                    onChange={onChange}
+                    placeholder="생년월일"
+                    type="date" />
                 <br />
-                {/* {birth} */}
-                {/* <hr /> */}
-                <select value={input.country} onChange={onChangeConutry}>
+            </div>
+            <div>
+                <select
+                    name="country"
+                    value={input.country}
+                    onChange={onChange}>;
                     <option value=""></option>
                     <option value="kr">한국</option>
                     <option value="uk">영국</option>
@@ -129,14 +156,16 @@ const Register = () => {
                     <option value="us">미국</option>
                 </select>
                 <br />
-                {/* {country} */}
-                {/* <hr /> */}
-                <textarea value={input.bio} onChange={onChangeBio} />
-                <br />
-                {/* {bio} */}
             </div>
-            <button type="submit">전송</button>
-        </div>
+            <div>
+                <textarea
+                    name="bio"
+                    value={input.bio}
+                    onChange={onChange} />
+                <br />
+            </div>
+            <button onClick={onSubmit}>제출</button>
+        </div >
     );
 
 }

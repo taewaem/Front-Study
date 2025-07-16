@@ -7,7 +7,11 @@ import Bulb from './components/Bulb'
 import Counter from './components/Counter'
 import Register from "./components/Register"
 import './App.css'
-
+import CompareRefAndLet from './components/CompareRefAndLet'
+import TypingGame from './components/TypingGame'
+import ClickCounter from './components/ClickCounter'
+import EffectExample from './components/EffectExample'
+import RandomQuote from './components/RandomQuote'
 /*
 const header=() =>{
 }
@@ -84,11 +88,13 @@ const header=() =>{
 //   )
 // }
 
-
 function App() {
   return (
     <>
-      <Register/>
+      <TypingGame />
+      <ClickCounter />
+      <EffectExample />
+      <RandomQuote />
     </>
 
 
