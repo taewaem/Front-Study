@@ -12,6 +12,13 @@ import TypingGame from './components/TypingGame'
 import ClickCounter from './components/ClickCounter'
 import EffectExample from './components/EffectExample'
 import RandomQuote from './components/RandomQuote'
+import ContextExample from './components/ContextExample'
+import ReducerExample from './components/ReducerExample'
+import CallbackExample from './components/CallbackExample'
+import LayoutEffectExample from './components/LayoutEffectExample'
+import MemoExample from './components/MemoExample'
+
+
 /*
 const header=() =>{
 }
@@ -91,10 +98,17 @@ const header=() =>{
 function App() {
   return (
     <>
-      <TypingGame />
-      <ClickCounter />
-      <EffectExample />
-      <RandomQuote />
+      <ContextExample />
+      <hr />
+      <ReducerExample />
+      <hr />
+      <CallbackExample />
+      <hr />
+      <MemoExample />
+      <hr />
+      <LayoutEffectExample />
+      <hr />
+      
     </>
 
 

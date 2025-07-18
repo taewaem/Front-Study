@@ -20,3 +20,8 @@ const CallbackExample = () => {
 }
 
 export default CallbackExample;
+
+/*
+매번 새로 생성되는 함수를 기억해서, 불필요한 렌더링을 막는 Hook
+→ 성능 최적화 목적
+*/
