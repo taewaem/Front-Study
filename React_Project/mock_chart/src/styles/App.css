@@ -1,0 +1,102 @@
+/* src/styles/App.css */
+
+/* 전역 리셋 및 기본 설정 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background-color: #f8fafc;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+/* 메인 앱 컨테이너 */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 앱 헤더 */
+.app-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.app-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  
+  /* 텍스트에 그라데이션 효과 */
+  background: linear-gradient(45deg, #fff, #e0e7ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.app-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+/* 메인 콘텐츠 영역 */
+.app-main {
+  flex: 1; /* 남은 공간을 모두 차지 */
+  padding: 20px;
+  background-color: #f8fafc;
+}
+
+/* 앱 푸터 */
+.app-footer {
+  background-color: #374151;
+  color: #d1d5db;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* 반응형 디자인 - 실무에서 중요! */
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 2rem;
+  }
+  
+  .app-subtitle {
+    font-size: 1rem;
+  }
+  
+  .app-header {
+    padding: 30px 15px;
+  }
+  
+  .app-main {
+    padding: 15px;
+  }
+}
+
+/* 스크롤바 스타일링 (웹킷 기반 브라우저) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

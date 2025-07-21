@@ -1,0 +1,117 @@
+/* src/styles/Stock.css */
+
+/* 주식 아이템 카드 */
+.stock-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  background-color: white;
+  
+  /* 실무 팁: 카드에 살짝 그림자 효과 */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+}
+
+.stock-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 주식 정보 레이아웃 */
+.stock-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.stock-info {
+  flex: 1;
+}
+
+.stock-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.stock-code {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* 가격 정보 */
+.stock-price {
+  text-align: right;
+}
+
+.current-price {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.price-change {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* 상승/하락 색상 - 실무에서 중요한 UX */
+.price-up {
+  color: #ef4444; /* 빨간색 - 상승 */
+}
+
+.price-down {
+  color: #3b82f6; /* 파란색 - 하락 */
+}
+
+.price-same {
+  color: #6b7280; /* 회색 - 보합 */
+}
+
+/* 거래량 정보 */
+.stock-volume {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.owned-info {
+  color: #059669;
+  font-weight: 600;
+}
+
+/* 버튼 영역 */
+.stock-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.stock-buttons .button {
+  flex: 1; /* 버튼들이 균등하게 공간 차지 */
+}
+
+/* StockList 컴포넌트 스타일 */
+.stock-list {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.stock-list-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.stock-list-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6b7280;
+  font-size: 16px;
+}

@@ -1,0 +1,172 @@
+/* src/styles/Portfolio.css */
+
+.portfolio {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+.portfolio-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* 자산 현황 */
+.portfolio-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.asset-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.asset-item.total {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+}
+
+.asset-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.asset-item.total .asset-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.asset-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.asset-value.cash {
+  color: #059669; /* 현금은 초록색 */
+}
+
+.asset-value.stocks {
+  color: #dc2626; /* 주식은 빨간색 */
+}
+
+.asset-item.total .asset-value {
+  color: white;
+}
+
+/* 보유 주식 섹션 */
+.owned-stocks {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 20px;
+}
+
+.owned-stocks-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 16px;
+}
+
+.owned-stock-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #f9fafb;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  border: 1px solid #f3f4f6;
+}
+
+.owned-stock-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.owned-stock-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.owned-stock-quantity {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.owned-stock-value {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.owned-stock-price {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.owned-stock-total {
+  font-size: 12px;
+  color: #059669;
+  font-weight: 500;
+}
+
+/* 빈 상태 */
+.no-stocks {
+  text-align: center;
+  padding: 32px 16px;
+  color: #6b7280;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 20px;
+}
+
+.no-stocks p {
+  font-size: 14px;
+  margin: 0;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .portfolio {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .portfolio-summary {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .asset-item {
+    padding: 12px;
+  }
+  
+  .owned-stock-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .owned-stock-value {
+    align-items: flex-start;
+    width: 100%;
+  }
+}
